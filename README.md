@@ -10,12 +10,12 @@
 
 This is a browser-based game called Snake. The player uses arrow keys to move around "snake" in the game board. The snake grows larger as it gains food. The player loses if the snake moves into itself or moves off the game board.
 
-### **\__Technologies To Use_**
+### **_Technologies To Use_**
 
 - HTML
 - CSS
 - JavaScript
 
-### Trello Board\*\*\*
+### Trello Board
 
 [Hyeree's Project 1](https://trello.com/b/k0RiE7y4/hyerees-project-1)
