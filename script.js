@@ -1,10 +1,12 @@
 let lastTime = 0
 let inputDirection = { x: 0, y: 0 }
 let lastDirection = { x: 0, y: 0 }
-let food = { x: 0, y: 0 }
-const speed = 2
+let food = { x: 10, y: 1 }
+const speed = 5
 const snake = [{ x: 10, y: 10 }]
 const board = document.getElementById('board')
+const incrementRate = 1
+const snakeIncrement = 0
 
 function main(currentTime) {
   // to perform animation and req
@@ -21,12 +23,19 @@ function main(currentTime) {
 }
 
 function update() {
+  // update position of the snake
   inputDirection = direction()
   for (let i = snake.length - 2; i >= 0; i--) {
     snake[i + 1] = { ...snake[i] }
   }
   snake[0].x += inputDirection.x
   snake[0].y += inputDirection.y
+
+  // update food randomly
+  if (onSnake(food)) {
+    incrementSnake(increment)
+    food = { x: 20, y: 10 }
+  }
 }
 
 function draw(board) {
@@ -48,6 +57,7 @@ function draw(board) {
 }
 
 function direction() {
+  lastDirection = inputDirection
   return inputDirection
 }
 
@@ -63,7 +73,6 @@ window.addEventListener('keydown', keyDown)
 function keyDown(e) {
   if (e.keyCode === 37) {
     inputDirection = { x: -1, y: 0 }
-    console.log('this is left')
   }
   if (e.keyCode === 38) {
     inputDirection = { x: 0, y: -1 }
@@ -75,40 +84,11 @@ function keyDown(e) {
     inputDirection = { x: 0, y: 1 }
   }
 }
-// document.body.addEventListener('keydown', (event) => {
-//   if (event.keyCode === 37) {
-//     inputDirection = { x: -1, y: 0 }
-//   }
-//   if (e.keyCode === 38) {
-//     inputDirection = { x: 0, y: 1 }
-//   }
-//   if (e.keyCode === 39) {
-//     inputDirection = { x: 1, y: 0 }
-//   }
-//   if (e.keyCode === 40) {
-//     inputDirection = { x: 0, y: -1 }
-//   }
 
-// switch (e.key) {
-//   case e.key === 37:
-//     inputDirection = { x: -1, y: 0 }
-//     console.log('this is left')
-//     alert('left')
-//     break
-//   case 'up':
-//     inputDirection = { x: 0, y: 1 }
-//     console.log('this is up')
-//     break
+function incrementSnake(rate) {
+  snakeIncrement += rate
+}
 
-//   case 'right':
-//     inputDirection = { x: 1, y: 0 }
-//     console.log('this is right')
-//     break
-//   case 'down':
-//     inputDirection = { x: 0, y: -1 }
-//     console.log('this is down')
-//     break
-// }
-// })
+function onSnake(spot) {}
 
 // https://developer.mozilla.org/ko/docs/Web/API/Window/requestAnimationFrame
