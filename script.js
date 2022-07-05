@@ -7,6 +7,7 @@ const snake = [{ x: 10, y: 10 }]
 const board = document.getElementById('board')
 
 function main(currentTime) {
+  // to perform animation and req
   window.requestAnimationFrame(main)
   if ((currentTime - lastTime) / 1000 < 1 / speed) {
     return
@@ -17,10 +18,6 @@ function main(currentTime) {
   update()
   board.innerHTML = ''
   draw(board)
-}
-
-function direction() {
-  return inputDirection
 }
 
 function update() {
@@ -34,12 +31,14 @@ function update() {
 
 function draw(board) {
   snake.forEach((position) => {
+    // display snake
     const snakeElement = document.createElement('div')
     snakeElement.style.gridRowStart = position.y
     snakeElement.style.gridColumnStart = position.x
     snakeElement.classList.add('snake')
     board.appendChild(snakeElement)
 
+    // display food
     const foodElement = document.createElement('div')
     foodElement.style.gridRowStart = food.y
     foodElement.style.gridColumnStart = food.x
@@ -48,9 +47,9 @@ function draw(board) {
   })
 }
 
-// function direction() {
-//   return inputDirection
-// }
+function direction() {
+  return inputDirection
+}
 
 window.requestAnimationFrame(main)
 
@@ -58,31 +57,58 @@ window.requestAnimationFrame(main)
 // up = 38
 // right = 39
 // down = 40
-window.addEventListener('keydown', (e) => {
-  // if (e.keyCode === 37) {
-  //   inputDirection = { x: -1, y: 0 }
-  // }
-  // if (e.keyCode === 38) {
-  //   inputDirection = { x: 0, y: 1 }
-  // }
-  // if (e.keyCode === 39) {
-  //   inputDirection = { x: 1, y: 0 }
-  // }
-  // if (e.keyCode === 40) {
-  //   inputDirection = { x: 0, y: -1 }
-  // }
-  switch (e.key) {
-    case 'left':
-      inputDirection = { x: -1, y: 0 }
-      break
-    case 'up':
-      inputDirection = { x: 0, y: 1 }
-      break
-    case 'right':
-      inputDirection = { x: 1, y: 0 }
-      break
-    case 'down':
-      inputDirection = { x: 0, y: -1 }
-      break
+
+window.addEventListener('keydown', keyDown)
+
+function keyDown(e) {
+  if (e.keyCode === 37) {
+    inputDirection = { x: -1, y: 0 }
+    console.log('this is left')
   }
-})
+  if (e.keyCode === 38) {
+    inputDirection = { x: 0, y: -1 }
+  }
+  if (e.keyCode === 39) {
+    inputDirection = { x: 1, y: 0 }
+  }
+  if (e.keyCode === 40) {
+    inputDirection = { x: 0, y: 1 }
+  }
+}
+// document.body.addEventListener('keydown', (event) => {
+//   if (event.keyCode === 37) {
+//     inputDirection = { x: -1, y: 0 }
+//   }
+//   if (e.keyCode === 38) {
+//     inputDirection = { x: 0, y: 1 }
+//   }
+//   if (e.keyCode === 39) {
+//     inputDirection = { x: 1, y: 0 }
+//   }
+//   if (e.keyCode === 40) {
+//     inputDirection = { x: 0, y: -1 }
+//   }
+
+// switch (e.key) {
+//   case e.key === 37:
+//     inputDirection = { x: -1, y: 0 }
+//     console.log('this is left')
+//     alert('left')
+//     break
+//   case 'up':
+//     inputDirection = { x: 0, y: 1 }
+//     console.log('this is up')
+//     break
+
+//   case 'right':
+//     inputDirection = { x: 1, y: 0 }
+//     console.log('this is right')
+//     break
+//   case 'down':
+//     inputDirection = { x: 0, y: -1 }
+//     console.log('this is down')
+//     break
+// }
+// })
+
+// https://developer.mozilla.org/ko/docs/Web/API/Window/requestAnimationFrame
