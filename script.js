@@ -33,8 +33,8 @@ function update() {
 
   // update food randomly
   if (eatFood(food)) {
-    incrementSnake(increment)
-    food = { x: 20, y: 10 }
+    incrementSnake(rate)
+    food = { x: 18, y: 10 }
   }
 }
 
@@ -95,6 +95,7 @@ function eatFood() {
       x: snake[0].x + inputDirection.x,
       y: snake[0].y + inputDirection.y
     })
+    food = { x: 18, y: 10 }
   }
 }
 
