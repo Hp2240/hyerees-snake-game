@@ -32,7 +32,7 @@ function update() {
   snake[0].y += inputDirection.y
 
   // update food randomly
-  if (onSnake(food)) {
+  if (eatFood(food)) {
     incrementSnake(increment)
     food = { x: 20, y: 10 }
   }
@@ -89,6 +89,13 @@ function incrementSnake(rate) {
   snakeIncrement += rate
 }
 
-function onSnake(spot) {}
+function eatFood() {
+  if (snake[0].x === food.x && snake[0].y === food.y) {
+    snake.unshift({
+      x: snake[0].x + inputDirection.x,
+      y: snake[0].y + inputDirection.y
+    })
+  }
+}
 
 // https://developer.mozilla.org/ko/docs/Web/API/Window/requestAnimationFrame
