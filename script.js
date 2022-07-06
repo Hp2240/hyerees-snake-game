@@ -1,7 +1,10 @@
 let lastTime = 0
 let inputDirection = { x: 0, y: 0 }
 let lastDirection = { x: 0, y: 0 }
-let food = { x: 10, y: 1 }
+let food = {
+  x: Math.floor(Math.random() * 18) + 1,
+  y: Math.floor(Math.random() * 18) + 1
+}
 const speed = 5
 const snake = [{ x: 10, y: 10 }]
 const board = document.getElementById('board')
@@ -34,7 +37,6 @@ function update() {
   // update food randomly
   if (eatFood(food)) {
     incrementSnake(rate)
-    food = { x: 18, y: 10 }
   }
 }
 
@@ -63,25 +65,28 @@ function direction() {
 
 window.requestAnimationFrame(main)
 
-// left = 37
-// up = 38
-// right = 39
-// down = 40
-
 window.addEventListener('keydown', keyDown)
 
 function keyDown(e) {
+  // left
   if (e.keyCode === 37) {
-    inputDirection = { x: -1, y: 0 }
+    if (lastDirection.x !== 0) {
+    } else inputDirection = { x: -1, y: 0 }
   }
+  // up
   if (e.keyCode === 38) {
-    inputDirection = { x: 0, y: -1 }
+    if (lastDirection.y !== 0) {
+    } else inputDirection = { x: 0, y: -1 }
   }
+  // right
   if (e.keyCode === 39) {
-    inputDirection = { x: 1, y: 0 }
+    if (lastDirection.x !== 0) {
+    } else inputDirection = { x: 1, y: 0 }
   }
+  // down
   if (e.keyCode === 40) {
-    inputDirection = { x: 0, y: 1 }
+    if (lastDirection.y !== 0) {
+    } else inputDirection = { x: 0, y: 1 }
   }
 }
 
@@ -95,8 +100,30 @@ function eatFood() {
       x: snake[0].x + inputDirection.x,
       y: snake[0].y + inputDirection.y
     })
-    food = { x: 18, y: 10 }
+    let [xPo, yPo] = foodRandomPosition()
+    food = {
+      x: xPo,
+      y: yPo
+    }
   }
+}
+
+function foodRandomPosition() {
+  xPosition = Math.floor(Math.random() * 18) + 1
+  yPosition = Math.floor(Math.random() * 18) + 1
+  let valid = false
+  while (!valid) {
+    for (let i = 0; i < snake.length; i++) {
+      if (xPosition !== snake[i].x && yPosition !== snake[i].y) {
+        valid = true
+      } else {
+        break
+      }
+    }
+    xPosition = Math.floor(Math.random() * 18) + 1
+    yPosition = Math.floor(Math.random() * 18) + 1
+  }
+  return [xPosition, yPosition]
 }
 
 // https://developer.mozilla.org/ko/docs/Web/API/Window/requestAnimationFrame
