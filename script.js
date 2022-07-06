@@ -5,41 +5,46 @@ let food = {
   x: Math.floor(Math.random() * 18) + 1,
   y: Math.floor(Math.random() * 18) + 1
 }
-const speed = 5
+let gameOverVar = false
 const snake = [{ x: 10, y: 10 }]
 const board = document.getElementById('board')
+const speed = 5
 const incrementRate = 1
 const snakeIncrement = 0
 
+// This function tells the browser which animation that you want to perform,
+// and have it update the animation and call the function before the next repaint.
 function main(currentTime) {
-  // to perform animation and req
+  if (gameOverVar) {
+    return alert('you lose')
+  }
+
   window.requestAnimationFrame(main)
   if ((currentTime - lastTime) / 1000 < 1 / speed) {
     return
   }
-  // console.log('rendered')
   lastTime = currentTime
-  // console.log(currentTime)
-  update()
   board.innerHTML = ''
   draw(board)
+  update()
+
+  if (eatFood(food)) {
+    incrementSnake()
+  }
 }
 
 function update() {
-  // update position of the snake
   inputDirection = direction()
   for (let i = snake.length - 2; i >= 0; i--) {
     snake[i + 1] = { ...snake[i] }
   }
+  // update head based on input direction
   snake[0].x += inputDirection.x
   snake[0].y += inputDirection.y
-
-  // update food randomly
-  if (eatFood(food)) {
-    incrementSnake(rate)
-  }
+  console.log(snake.length)
 }
 
+// This function is to display snake and food
 function draw(board) {
   snake.forEach((position) => {
     // display snake
@@ -67,6 +72,7 @@ window.requestAnimationFrame(main)
 
 window.addEventListener('keydown', keyDown)
 
+// This function is to move a snake using arrow keys
 function keyDown(e) {
   // left
   if (e.keyCode === 37) {
@@ -90,10 +96,11 @@ function keyDown(e) {
   }
 }
 
-function incrementSnake(rate) {
-  snakeIncrement += rate
+function incrementSnake() {
+  snakeIncrement += incrementRate
 }
 
+// This function is to make a snake longer once it eats food
 function eatFood() {
   if (snake[0].x === food.x && snake[0].y === food.y) {
     snake.unshift({
@@ -108,10 +115,12 @@ function eatFood() {
   }
 }
 
+// This function is to generate random food
 function foodRandomPosition() {
   xPosition = Math.floor(Math.random() * 18) + 1
   yPosition = Math.floor(Math.random() * 18) + 1
   let valid = false
+  // to prevent foods from appearing in the path the snake is passing by
   while (!valid) {
     for (let i = 0; i < snake.length; i++) {
       if (xPosition !== snake[i].x && yPosition !== snake[i].y) {
@@ -126,4 +135,33 @@ function foodRandomPosition() {
   return [xPosition, yPosition]
 }
 
+// function grid(pos) {
+//   return pos.x < 1 || pos.x > 19 || pos.y < 1 || pos.y > 19
+// }
+
+// function getsnake() {
+//   return snakeBody[0]
+// }
+
+// // function snakeBody() {
+// //   return
+// // }
+
+function gameOver() {
+  // death = grid(getSnake()) || sankeBody()
+  if (
+    snake[0].x < gridColumnStart ||
+    snake[0].x > gridColumnEnd ||
+    snake[0].y < gridRowStart ||
+    snake[0].y > gridRowEnd
+  ) {
+    gameOverVar = true
+  }
+}
+
+// citation
+// https://www.youtube.com/watch?v=QTcIXok9wNY
 // https://developer.mozilla.org/ko/docs/Web/API/Window/requestAnimationFrame
+// https://www.freecodecamp.org/news/how-to-build-a-snake-game-in-javascript/
+// https://css-tricks.com/how-to-create-neon-text-with-css/
+// https://www.educative.io/blog/javascript-snake-game-tutorial
