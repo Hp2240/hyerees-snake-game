@@ -28,7 +28,7 @@ Once you click the paly button, the snake game page will load with a gameboard. 
 
 ### **_Screenshots_**
 
-(snake.png)
+![Image](https://garden.spoonflower.com/c/13022917/p/f/m/3NydTSAbRrK3RpxBbs-4tEnfoo_MxDpyCt0COghDiAh44Pu4eHaqi4s/Fat%20Quarter%20Bewitching%20Snakes.jpg)
 
 ### **_Credits_**
 
