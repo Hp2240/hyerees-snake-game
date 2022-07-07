@@ -1,17 +1,18 @@
-let lastTime = 0
-let score = 0
-let gameOverVar = false
 let inputDirection = { x: 0, y: 0 }
 let lastDirection = { x: 0, y: 0 }
 let food = {
   x: Math.floor(Math.random() * 19) + 1,
   y: Math.floor(Math.random() * 19) + 1
 }
-const snake = [{ x: 10, y: 10 }]
+let lastTime = 0
+let score = 0
+let gameOverVar = false
+
 const board = document.getElementById('board')
 const button = document.getElementById('restart')
 const scoreDisplay = document.querySelector('.score')
 const gameOverMessage = document.querySelector('.lose')
+const snake = [{ x: 10, y: 10 }]
 const speed = 5
 const incrementRate = 1
 const snakeIncrement = 0
@@ -74,7 +75,6 @@ function direction() {
 }
 
 window.requestAnimationFrame(main)
-
 window.addEventListener('keydown', keyDown)
 
 // This function is to move a snake using arrow keys
@@ -105,11 +105,6 @@ function incrementSnake() {
   snakeIncrement += incrementRate
 }
 
-// function scoreCount() {
-//   score++
-//   return 'score is counted'
-// }
-
 // This function is to make a snake longer once it eats food
 function eatFood() {
   if (snake[0].x === food.x && snake[0].y === food.y) {
@@ -124,7 +119,6 @@ function eatFood() {
     }
     score++
     scoreDisplay.innerText = score
-    console.log(score)
   }
 }
 

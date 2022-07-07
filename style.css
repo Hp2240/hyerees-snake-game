@@ -17,8 +17,8 @@ body {
 #board {
   position: absolute;
   background-color: #1B4D3E;
-  width: 90vmin;
-  height: 92vmin;
+  width: 80vmin;
+  height: 80vmin;
   border: 3px solid #CCFECF;
   display: grid;
   grid-template-rows: repeat(19, 1fr);
@@ -54,10 +54,6 @@ a{
 }
 
 h1 {
-  /* margin: 0;
-  position: absolute;
-  font-size: 5.2rem;
-  text-align: center; */
     font-size: 5.2rem;
     text-align: center;
       animation: pulsate 1.5s infinite alternate;
@@ -183,7 +179,7 @@ button {
 
 .lose {
   position: absolute;
-  top: 70%;
+  top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 4rem;
@@ -194,4 +190,40 @@ button {
   pointer-events: none;
   transition: all 250ms ease;
   color: white
+}
+
+span {
+  font-size: 25px;
+}
+.score-display {
+  display: center;
+    text-align: center;
+      color: #CCFECF;
+      text-shadow:
+        0 0 7px #CCFECF,
+        0 0 10px #CCFECF,
+        0 0 21px #CCFECF,
+        0 0 42px #CCFECF,
+        0 0 82px #CCFECF,
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
+}
+.update-score {
+    display: center;
+      text-align: center;
+      color: #CCFECF;
+      text-shadow:
+        0 0 7px #CCFECF,
+        0 0 10px #CCFECF,
+        0 0 21px #CCFECF,
+        0 0 42px #CCFECF,
+        0 0 82px #CCFECF,
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
+}
+
+.score {
+  font-size: 22px;
 }
