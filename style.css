@@ -2,30 +2,47 @@
   /* padding: 0;
   margin: 0; */
   font-family: 'Inconsolata', monospace;
+  /* font-family: "Sacramento", sans-serif; */
 }
 
 body {
-  min-height: 100vh;
+  /* min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   background-color: #161b22;
 
 }
+.container {
+    min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
 #board {
   position: absolute;
-  background-color: lightgreen;
+  background-color: #1B4D3E;
   width: 90vmin;
   height: 92vmin;
-  border: 3px solid white;
+  border: 3px solid #CCFECF;
   display: grid;
   grid-template-rows: repeat(19, 1fr);
   grid-template-columns: repeat(19, 1fr);
   
 }
 .title {
-  animation: flicker 1.5s infinite alternate;
-  color: lightgreen;
+  /* animation: flicker 1.5s infinite alternate;
+  color: lightgreen; */
+    color: #CCFECF;
+      text-shadow:
+        0 0 7px #CCFECF,
+        0 0 10px #CCFECF,
+        0 0 21px #CCFECF,
+        0 0 42px #CCFECF,
+        0 0 82px #CCFECF,
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
 }
 
 .play-button {
@@ -41,27 +58,74 @@ a{
 }
 
 h1 {
-  margin: 0;
+  /* margin: 0;
   position: absolute;
   font-size: 5.2rem;
-  text-align: center;
+  text-align: center; */
+    font-size: 5.2rem;
+    text-align: center;
+      animation: pulsate 1.5s infinite alternate;
+      border: 0.2rem solid #CCFECF;
+      border-radius: 2rem;
+      padding: 0.4em;
+      box-shadow: 0 0 .2rem #CCFECF,
+        0 0 .2rem #CCFECF,
+        0 0 2rem #0fa,
+        0 0 0.8rem #0fa,
+        0 0 2.8rem #0fa,
+        inset 0 0 1.3rem #0fa;
 }
+@keyframes pulsate {
 
+  100% {
+
+    text-shadow:
+      0 0 4px #CCFECF,
+      0 0 11px #CCFECF,
+      0 0 19px #CCFECF,
+      0 0 40px #0fa,
+      0 0 80px #0fa,
+      0 0 90px #0fa,
+      0 0 100px #0fa,
+      0 0 150px #0fa;
+
+  }
+
+  0% {
+
+    text-shadow:
+      0 0 2px #CCFECF,
+      0 0 4px #CCFECF,
+      0 0 6px #CCFECF,
+      0 0 10px #0fa,
+      0 0 45px #0fa,
+      0 0 55px #0fa,
+      0 0 70px #0fa,
+      0 0 80px #0fa;
+
+  }
+}
 img {
-  border-radius: 50%;
-  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  border: #0fa 3px solid;
+  border-radius: 20px;
+
 }
 
 .snake {
-  background-color: green;
-  border-radius: 8px;
+  background-color: #228B22;
+  border-radius: 8px; 
+
 }
 .food {
   background-color: red;
   border-radius: 23px;
 }
 
-@keyframes flicker {
+/* @keyframes flicker {
 
   0%,
   18%,
@@ -88,22 +152,31 @@ img {
   55% {
     text-shadow: none;
   }
-}
+} */
 
 button {
   position: absolute;
   border-radius: 20px;
   color: white;
-  border: white 2px solid;
-  background: green;
+  border: #0fa 2px solid;
+  background: #161b22;
   cursor: pointer;
 }
 
 #restart {
   display: none;
-  margin-top: 500px;
+
 }
 .score {
   text-align: center;
-  color: white
+    color: #CCFECF;
+      text-shadow:
+        0 0 7px #CCFECF,
+        0 0 10px #CCFECF,
+        0 0 21px #CCFECF,
+        0 0 42px #CCFECF,
+        0 0 82px #CCFECF,
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
 }

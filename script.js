@@ -164,4 +164,4 @@ function gameOver() {
 // https://www.freecodecamp.org/news/how-to-build-a-snake-game-in-javascript/
 // https://css-tricks.com/how-to-create-neon-text-with-css/
 // https://www.educative.io/blog/javascript-snake-game-tutorial
-// https://duckduckgo.com/?q=cute+snake+drawing&t=h_&iax=images&iai=https%3A%2F%2Fi.ytimg.com%2Fvi%2FVvADq3EzNJE%2Fmaxresdefault.jpg&ia=images
+// https://garden.spoonflower.com/c/13022917/p/f/m/3NydTSAbRrK3RpxBbs-4tEnfoo_MxDpyCt0COghDiAh44Pu4eHaqi4s/Fat%20Quarter%20Bewitching%20Snakes.jpg
