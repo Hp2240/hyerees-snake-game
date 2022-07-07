@@ -6,18 +6,13 @@
 }
 
 body {
-  /* min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center; */
   background-color: #161b22;
-
 }
 .container {
     min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #board {
   position: absolute;
@@ -55,6 +50,7 @@ body {
 a{
   color: white;
   margin-top: 700px;
+  text-decoration: none;
 }
 
 h1 {
@@ -125,38 +121,11 @@ img {
   border-radius: 23px;
 }
 
-/* @keyframes flicker {
-
-  0%,
-  18%,
-  22%,
-  25%,
-  53%,
-  57%,
-  100% {
-
-    text-shadow:
-      0 0 4px #fff,
-      0 0 11px #fff,
-      0 0 19px #fff,
-      0 0 40px #0fa,
-      0 0 80px #0fa,
-      0 0 90px #0fa,
-      0 0 100px #0fa,
-      0 0 150px #0fa;
-
-  }
-
-  20%,
-  24%,
-  55% {
-    text-shadow: none;
-  }
-} */
-
 button {
   position: absolute;
+  margin-top: -650px;
   border-radius: 20px;
+  text-decoration: none;
   color: white;
   border: #0fa 2px solid;
   background: #161b22;
@@ -165,6 +134,10 @@ button {
 
 #restart {
   display: none;
+  font-size: 2rem;
+  text-decoration: none;
+  text-align: center;
+  align-items: center;
 
 }
 .score {
@@ -206,4 +179,19 @@ button {
 
 .instruction:hover .instructiontext {
   visibility: visible;
+}
+
+.lose {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 4rem;
+  background-color: #161b22;
+  text-align: center;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 250ms ease;
+  color: white
 }

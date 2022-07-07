@@ -10,6 +10,8 @@ let food = {
 const snake = [{ x: 10, y: 10 }]
 const board = document.getElementById('board')
 const button = document.getElementById('restart')
+const scoreDisplay = document.querySelector('.score')
+const gameOverMessage = document.querySelector('.lose')
 const speed = 5
 const incrementRate = 1
 const snakeIncrement = 0
@@ -19,6 +21,7 @@ const snakeIncrement = 0
 function main(currentTime) {
   if (gameOver() === true) {
     button.style.display = 'block'
+    gameOverMessage.style.opacity = '1'
     return 0
   }
   window.requestAnimationFrame(main)
@@ -120,6 +123,7 @@ function eatFood() {
       y: yPo
     }
     score++
+    scoreDisplay.innerText = score
     console.log(score)
   }
 }
@@ -165,3 +169,4 @@ function gameOver() {
 // https://css-tricks.com/how-to-create-neon-text-with-css/
 // https://www.educative.io/blog/javascript-snake-game-tutorial
 // https://garden.spoonflower.com/c/13022917/p/f/m/3NydTSAbRrK3RpxBbs-4tEnfoo_MxDpyCt0COghDiAh44Pu4eHaqi4s/Fat%20Quarter%20Bewitching%20Snakes.jpg
+// https://www.w3schools.com/css/css_tooltip.asp
