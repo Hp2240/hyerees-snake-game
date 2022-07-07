@@ -9,6 +9,7 @@ let food = {
 }
 const snake = [{ x: 10, y: 10 }]
 const board = document.getElementById('board')
+const button = document.getElementById('restart')
 const speed = 5
 const incrementRate = 1
 const snakeIncrement = 0
@@ -17,7 +18,7 @@ const snakeIncrement = 0
 // and have it update the animation and call the function before the next repaint.
 function main(currentTime) {
   if (gameOver() === true) {
-    alert('you lose')
+    button.style.display = 'block'
     return 0
   }
   window.requestAnimationFrame(main)
