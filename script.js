@@ -35,6 +35,7 @@ function main(currentTime) {
   }
 }
 
+// This function is to update the position
 function update() {
   inputDirection = direction()
   for (let i = snake.length - 2; i >= 0; i--) {
@@ -43,13 +44,6 @@ function update() {
   // update head based on input direction
   snake[0].x += inputDirection.x
   snake[0].y += inputDirection.y
-  console.log(snake.length)
-
-  // if (eatFood(food)) {
-  //   incrementSnake()
-  // }
-
-  //console.log(snake.length, 'this is the length')
 }
 
 // This function is to display snake and food
@@ -123,7 +117,7 @@ function eatFood() {
     let [xPo, yPo] = foodRandomPosition()
     food = {
       x: xPo,
-      y: 1
+      y: yPo
     }
     score++
     console.log(score)
@@ -152,9 +146,6 @@ function foodRandomPosition() {
 }
 
 function gameOver() {
-  // death = outsideGrid(getSnake()) || sankeBody()
-  // let snakeheadX = snake[0].x + inputDirection.x
-  // let snakeheadY = snake[0].y + inputDirection.y
   if (snake[0].x < 1 || snake[0].x > 19 || snake[0].y < 1 || snake[0].y > 19) {
     return true
   }
@@ -173,3 +164,4 @@ function gameOver() {
 // https://www.freecodecamp.org/news/how-to-build-a-snake-game-in-javascript/
 // https://css-tricks.com/how-to-create-neon-text-with-css/
 // https://www.educative.io/blog/javascript-snake-game-tutorial
+// https://duckduckgo.com/?q=cute+snake+drawing&t=h_&iax=images&iai=https%3A%2F%2Fi.ytimg.com%2Fvi%2FVvADq3EzNJE%2Fmaxresdefault.jpg&ia=images
