@@ -1,20 +1,20 @@
 * {
-  /* padding: 0;
-  margin: 0; */
   font-family: 'Inconsolata', monospace;
-  /* font-family: "Sacramento", sans-serif; */
 }
 
 body {
   background-color: #161b22;
 }
+
 .container {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 #board {
+  cursor: not-allowed;
   position: absolute;
   background-color: #1B4D3E;
   width: 80vmin;
@@ -25,19 +25,18 @@ body {
   grid-template-columns: repeat(19, 1fr);
   
 }
+
 .title {
-  /* animation: flicker 1.5s infinite alternate;
-  color: lightgreen; */
-    color: #CCFECF;
-      text-shadow:
-        0 0 7px #CCFECF,
-        0 0 10px #CCFECF,
-        0 0 21px #CCFECF,
-        0 0 42px #CCFECF,
-        0 0 82px #CCFECF,
-        0 0 92px #0fa,
-        0 0 102px #0fa,
-        0 0 151px #0fa;
+  color: #CCFECF;
+  text-shadow:
+    0 0 7px #CCFECF,
+    0 0 10px #CCFECF,
+    0 0 21px #CCFECF,
+    0 0 42px #CCFECF,
+    0 0 82px #CCFECF,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
 }
 
 .play-button {
@@ -47,6 +46,7 @@ body {
   align-items: center;
   
 }
+
 a{
   color: white;
   margin-top: 700px;
@@ -54,18 +54,19 @@ a{
 }
 
 h1 {
-    font-size: 5.2rem;
-    text-align: center;
-      animation: pulsate 1.5s infinite alternate;
-      border: 0.2rem solid #CCFECF;
-      border-radius: 2rem;
-      padding: 0.4em;
-      box-shadow: 0 0 .2rem #CCFECF,
-        0 0 .2rem #CCFECF,
-        0 0 2rem #0fa,
-        0 0 0.8rem #0fa,
-        0 0 2.8rem #0fa,
-        inset 0 0 1.3rem #0fa;
+  cursor: pointer;
+  font-size: 5.2rem;
+  text-align: center;
+  animation: pulsate 1.5s infinite alternate;
+  border: 0.2rem solid #CCFECF;
+  border-radius: 2rem;
+  padding: 0.4em;
+  box-shadow: 0 0 .2rem #CCFECF,
+              0 0 .2rem #CCFECF,
+              0 0 2rem #0fa,
+              0 0 0.8rem #0fa,
+              0 0 2.8rem #0fa,
+              inset 0 0 1.3rem #0fa;
 }
 @keyframes pulsate {
 
@@ -104,14 +105,13 @@ img {
   width: 40%;
   border: #0fa 3px solid;
   border-radius: 20px;
-
 }
 
 .snake {
   background-color: #228B22;
   border-radius: 8px; 
-
 }
+
 .food {
   background-color: red;
   border-radius: 23px;
@@ -134,8 +134,8 @@ button {
   text-decoration: none;
   text-align: center;
   align-items: center;
-
 }
+
 .score {
   text-align: center;
     color: #CCFECF;
@@ -149,17 +149,18 @@ button {
         0 0 102px #0fa,
         0 0 151px #0fa;
 }
+
 .instruction {
   text-align: center;
   position: relative;
   display: center;
   margin-top: 30px;
-  /* border-bottom: 1px dotted white; */
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
   color: white;  
 }
+
 .instruction .instructiontext {
     visibility: hidden;
     cursor: pointer;
@@ -197,31 +198,32 @@ span {
 }
 .score-display {
   display: center;
-    text-align: center;
-      color: #CCFECF;
-      text-shadow:
-        0 0 7px #CCFECF,
-        0 0 10px #CCFECF,
-        0 0 21px #CCFECF,
-        0 0 42px #CCFECF,
-        0 0 82px #CCFECF,
-        0 0 92px #0fa,
-        0 0 102px #0fa,
-        0 0 151px #0fa;
+  text-align: center;
+  color: #CCFECF;
+  text-shadow:
+    0 0 7px #CCFECF,
+    0 0 10px #CCFECF,
+    0 0 21px #CCFECF,
+    0 0 42px #CCFECF,
+    0 0 82px #CCFECF,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
 }
+
 .update-score {
-    display: center;
-      text-align: center;
-      color: #CCFECF;
-      text-shadow:
-        0 0 7px #CCFECF,
-        0 0 10px #CCFECF,
-        0 0 21px #CCFECF,
-        0 0 42px #CCFECF,
-        0 0 82px #CCFECF,
-        0 0 92px #0fa,
-        0 0 102px #0fa,
-        0 0 151px #0fa;
+  display: center;
+  text-align: center;
+  color: #CCFECF;
+  text-shadow:
+    0 0 7px #CCFECF,
+    0 0 10px #CCFECF,
+    0 0 21px #CCFECF,
+    0 0 42px #CCFECF,
+    0 0 82px #CCFECF,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
 }
 
 .score {

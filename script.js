@@ -25,6 +25,7 @@ function main(currentTime) {
     gameOverMessage.style.opacity = '1'
     return 0
   }
+
   window.requestAnimationFrame(main)
   if ((currentTime - lastTime) / 1000 < 1 / speed) {
     return
@@ -155,12 +156,3 @@ function gameOver() {
   }
   return false
 }
-
-// citation
-// https://www.youtube.com/watch?v=QTcIXok9wNY
-// https://developer.mozilla.org/ko/docs/Web/API/Window/requestAnimationFrame
-// https://www.freecodecamp.org/news/how-to-build-a-snake-game-in-javascript/
-// https://css-tricks.com/how-to-create-neon-text-with-css/
-// https://www.educative.io/blog/javascript-snake-game-tutorial
-// https://garden.spoonflower.com/c/13022917/p/f/m/3NydTSAbRrK3RpxBbs-4tEnfoo_MxDpyCt0COghDiAh44Pu4eHaqi4s/Fat%20Quarter%20Bewitching%20Snakes.jpg
-// https://www.w3schools.com/css/css_tooltip.asp
