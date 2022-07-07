@@ -26,6 +26,10 @@ Once you click the paly button, the snake game page will load with a gameboard. 
 
 ---
 
+### **_Screenshots_**
+
+(snake.png)
+
 ### **_Credits_**
 
 ##### Source: [1](https://www.youtube.com/watch?v=QTcIXok9wNY)
