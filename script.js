@@ -1,11 +1,12 @@
 let lastTime = 0
+let score = 0
+let gameOverVar = false
 let inputDirection = { x: 0, y: 0 }
 let lastDirection = { x: 0, y: 0 }
 let food = {
-  x: Math.floor(Math.random() * 18) + 1,
-  y: Math.floor(Math.random() * 18) + 1
+  x: Math.floor(Math.random() * 19) + 1,
+  y: Math.floor(Math.random() * 19) + 1
 }
-let gameOverVar = false
 const snake = [{ x: 10, y: 10 }]
 const board = document.getElementById('board')
 const speed = 5
@@ -15,10 +16,9 @@ const snakeIncrement = 0
 // This function tells the browser which animation that you want to perform,
 // and have it update the animation and call the function before the next repaint.
 function main(currentTime) {
-  if (gameOverVar) {
-    return alert('you lose')
+  if (gameOver(!gameOverVar)) {
+    alert('you lose')
   }
-
   window.requestAnimationFrame(main)
   if ((currentTime - lastTime) / 1000 < 1 / speed) {
     return
@@ -41,7 +41,12 @@ function update() {
   // update head based on input direction
   snake[0].x += inputDirection.x
   snake[0].y += inputDirection.y
-  console.log(snake.length)
+
+  // if (eatFood(food)) {
+  //   incrementSnake()
+  // }
+
+  console.log(snake.length, 'this is the length')
 }
 
 // This function is to display snake and food
@@ -86,6 +91,7 @@ function keyDown(e) {
   }
   // right
   if (e.keyCode === 39) {
+    inputDirection = { x: 1, y: 0 }
     if (lastDirection.x !== 0) {
     } else inputDirection = { x: 1, y: 0 }
   }
@@ -100,6 +106,11 @@ function incrementSnake() {
   snakeIncrement += incrementRate
 }
 
+// function scoreCount() {
+//   score++
+//   return 'score is counted'
+// }
+
 // This function is to make a snake longer once it eats food
 function eatFood() {
   if (snake[0].x === food.x && snake[0].y === food.y) {
@@ -111,52 +122,57 @@ function eatFood() {
     food = {
       x: xPo,
       y: yPo
+      // x: 1,
+      // y: 1
     }
+    score++
+    console.log(score)
   }
 }
 
 // This function is to generate random food
 function foodRandomPosition() {
-  xPosition = Math.floor(Math.random() * 18) + 1
-  yPosition = Math.floor(Math.random() * 18) + 1
+  xPosition = Math.floor(Math.random() * 19) + 1
+  yPosition = Math.floor(Math.random() * 19) + 1
   let valid = false
   // to prevent foods from appearing in the path the snake is passing by
-  while (!valid) {
+  while (valid) {
     for (let i = 0; i < snake.length; i++) {
       if (xPosition !== snake[i].x && yPosition !== snake[i].y) {
         valid = true
+        break
       } else {
+        xPosition = Math.floor(Math.random() * 19) + 1
+        yPosition = Math.floor(Math.random() * 19) + 1
         break
       }
     }
-    xPosition = Math.floor(Math.random() * 18) + 1
-    yPosition = Math.floor(Math.random() * 18) + 1
   }
   return [xPosition, yPosition]
 }
 
-// function grid(pos) {
-//   return pos.x < 1 || pos.x > 19 || pos.y < 1 || pos.y > 19
-// }
-
-// function getsnake() {
-//   return snakeBody[0]
-// }
-
-// // function snakeBody() {
-// //   return
-// // }
-
 function gameOver() {
-  // death = grid(getSnake()) || sankeBody()
-  if (
-    snake[0].x < gridColumnStart ||
-    snake[0].x > gridColumnEnd ||
-    snake[0].y < gridRowStart ||
-    snake[0].y > gridRowEnd
-  ) {
-    gameOverVar = true
-  }
+  // death = outsideGrid(getSnake()) || sankeBody()
+  // let snakeheadX = snake[0].x + inputDirection.x
+  // let snakeheadY = snake[0].y + inputDirection.y
+
+  while (gameOverVar)
+    for (let i = 0; i < snake.length; i++) {
+      let segment = snake[i]
+      if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
+        gameOverVar = true
+        break
+      }
+      if (
+        snake[0].x < 1 ||
+        snake[0].x > 19 ||
+        snake[0].y < 1 ||
+        snake[0].y > 19
+      ) {
+        gameOverVar = true
+        break
+      }
+    }
 }
 
 // citation
