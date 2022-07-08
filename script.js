@@ -144,6 +144,7 @@ function foodRandomPosition() {
   return [xPosition, yPosition]
 }
 
+// This function is to make game over conditions
 function gameOver() {
   if (snake[0].x < 1 || snake[0].x > 19 || snake[0].y < 1 || snake[0].y > 19) {
     return true

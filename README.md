@@ -8,6 +8,12 @@
 
 ---
 
+### **_Hosted Site_**
+
+[Snake Game](https://hp-snake-game.surge.sh/)
+
+---
+
 ### **_Description_**
 
 This is a browser-based game called Snake. The player uses arrow keys to move around "snake" in the game board. The snake grows larger as it gains food. The player loses if the snake moves into itself or moves off the game board.
@@ -28,7 +34,12 @@ Once you click the paly button, the snake game page will load with a gameboard. 
 
 ### **_Screenshots_**
 
-![Image](https://garden.spoonflower.com/c/13022917/p/f/m/3NydTSAbRrK3RpxBbs-4tEnfoo_MxDpyCt0COghDiAh44Pu4eHaqi4s/Fat%20Quarter%20Bewitching%20Snakes.jpg)
+Landing Page
+![Landing Page](https://i.imgur.com/nELIlRr.png)
+Game Play
+![Game Page](https://i.imgur.com/2E8qCbP.png)
+Game Over
+![Game Over](https://i.imgur.com/QspyNuY.png)
 
 ### **_Credits_**
 
